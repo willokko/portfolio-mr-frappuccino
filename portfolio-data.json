@@ -6,5 +6,21 @@
     "date": "2025-08-19",
     "type": "digital",
     "description": "Demônio Fogo para o RPG de Chainsaw Man"
+  },
+  {
+    "id": 2,
+    "title": "João e Tiago",
+    "imageUrl": "./imagens/joao tiago(1).jpg",
+    "date": "2025-03-15",
+    "type": "digital",
+    "description": "João, em um tom santo, segurando Tiago desfalecido, enquanto o diabo os observa ao fundo."
+  },
+  {
+    "id": 3,
+    "title": "João, Morte",
+    "imageUrl": "./imagens/Morte.jpg",
+    "date": "2025-04-04",
+    "type": "digital",
+    "description": "João, se tornou a morte."
   }
 ] 

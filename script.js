@@ -222,30 +222,12 @@ function openImageModal(item) {
     
     // Focar no modal para acessibilidade
     modal.focus();
-    
-    // Adicionar classe para animação
-    setTimeout(() => {
-        modal.classList.add('modal-open');
-    }, 10);
-    
-    // Prevenir scroll do body
-    document.addEventListener('wheel', preventScroll, { passive: false });
-    document.addEventListener('touchmove', preventScroll, { passive: false });
 }
 
 // Fechar modal
 function closeImageModal() {
-    modal.classList.remove('modal-open');
-    
-    // Aguardar animação terminar
-    setTimeout(() => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        
-        // Remover event listeners de scroll
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
-    }, 400);
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
 // Prevenir scroll do body quando modal estiver aberto
