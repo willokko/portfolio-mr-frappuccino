@@ -3,77 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Artístico</title>
+    <title>Portfólio Artístico - Mr. Frappuccino</title>
+    <meta name="description" content="Portfólio de arte digital e tradicional com desenhos, ilustrações e sketches criativos">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Header minimalista -->
     <header class="header">
-        <div class="container">
-            <h1 class="logo">Portfólio Artístico</h1>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">MR. FRAPPUCCINO</span>
+                <span class="logo-subtitle">Portfólio Artístico</span>
+            </div>
             <nav class="nav">
-                <a href="#home" class="nav-link">Início</a>
                 <a href="#portfolio" class="nav-link">Portfólio</a>
                 <a href="#about" class="nav-link">Sobre</a>
                 <a href="#contact" class="nav-link">Contato</a>
             </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-title">Bem-vindo ao meu mundo artístico</h2>
-                    <p class="hero-subtitle">Descubra minha coleção de desenhos e ilustrações</p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/mr.frappuccino" target="_blank" class="social-link instagram">
-                            <i class="fab fa-instagram"></i>
-                            @mr.frappuccino
-                        </a>
-                    </div>
+        <!-- Hero section minimalista -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Portfólio Artístico</h1>
+                <p class="hero-subtitle">2023 - 2025</p>
+                <div class="hero-location">
+                    <span class="location-text"Cajazeiras, PB</span>
                 </div>
             </div>
         </section>
 
+        <!-- Portfólio principal -->
         <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title">Meu Portfólio</h2>
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="digital">Digital</button>
-                    <button class="filter-btn" data-filter="traditional">Tradicional</button>
-                    <button class="filter-btn" data-filter="sketch">Sketch</button>
-                </div>
-                <div class="portfolio-grid" id="portfolioGrid">
-                    <!-- As imagens serão carregadas dinamicamente aqui -->
-                </div>
+            <div class="portfolio-header">
+                <h2 class="section-title">Selected Works</h2>
+                <p class="section-subtitle">2023-2025</p>
+            </div>
+            
+            <div class="portfolio-categories">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="digital">Digital</button>
+                <button class="category-btn" data-category="traditional">Tradicional</button>
+                <button class="category-btn" data-category="sketch">Sketch</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- As imagens serão carregadas dinamicamente aqui -->
             </div>
         </section>
 
+        <!-- Sobre -->
         <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-container">
                 <div class="about-content">
-                    <div class="about-text">
-                        <p>Artista apaixonado por criar e compartilhar minha visão única através de desenhos e ilustrações. Cada peça conta uma história e representa um momento de inspiração.</p>
-                        <p>Minhas obras abrangem diferentes estilos e técnicas, desde sketches rápidos até ilustrações digitais elaboradas.</p>
-                    </div>
+                    <h2 class="about-title">Sobre</h2>
+                    <p class="about-text">
+                        Artista apaixonado por criar e compartilhar minha visão única através de desenhos e ilustrações. 
+                        Cada peça conta uma história e representa um momento de inspiração.
+                    </p>
+                    <p class="about-text">
+                        Minhas obras abrangem diferentes estilos e técnicas, desde sketches rápidos até ilustrações digitais elaboradas.
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- Contato -->
         <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Entre em Contato</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
+            <div class="contact-container">
+                <h2 class="contact-title">Vamos nos conectar!</h2>
+                <p class="contact-subtitle">Me diga o que você precisa!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
                         <h3>Redes Sociais</h3>
                         <div class="social-links">
                             <a href="https://instagram.com/mr.frappuccino" target="_blank" class="social-link instagram">
                                 <i class="fab fa-instagram"></i>
-                                @mr.frappuccino
+                                Instagram
                             </a>
                         </div>
                     </div>
@@ -82,26 +98,42 @@
         </section>
     </main>
 
+    <!-- Footer minimalista -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Portfólio Artístico. Todos os direitos reservados.</p>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">MR. FRAPPUCCINO</div>
+                <div class="footer-info">
+                    <span>Portfólio 2023 - 2025</span>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>Todas as imagens Copyright © 2023-2025 Mr. Frappuccino</p>
+                <p>Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Modal para visualização das imagens -->
-    <div id="imageModal" class="modal">
+    <!-- Modal melhorado -->
+    <div id="imageModal" class="modal" tabindex="-1">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="" alt="">
-            <div class="image-info">
+            <button class="close" aria-label="Fechar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" loading="lazy">
+            </div>
+            <div class="modal-info">
                 <h3 id="modalTitle"></h3>
-                <p id="modalDate"></p>
-                <p id="modalType"></p>
+                <div class="modal-meta">
+                    <span class="modal-date" id="modalDate"></span>
+                    <span class="modal-type" id="modalType"></span>
+                </div>
+                <p id="modalDescription" class="modal-description"></p>
             </div>
         </div>
     </div>
 
-    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Novo Design - Portfólio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { 
+            padding: 50px; 
+            font-family: Arial, sans-serif; 
+            background: #f5f5f5;
+        }
+        .test-section { 
+            background: white; 
+            padding: 2rem; 
+            margin: 2rem 0; 
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-btn { 
+            padding: 15px 30px; 
+            background: var(--accent-color); 
+            color: white; 
+            border: none; 
+            border-radius: 0; 
+            cursor: pointer; 
+            font-size: 16px;
+            margin: 10px;
+            transition: var(--transition);
+        }
+        .test-btn:hover { 
+            background: #b8942a; 
+            transform: translateY(-2px);
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>Teste do Novo Design - Portfólio Mr. Frappuccino</h1>
+        <p>Testando o novo design inspirado no Sachin Teng com melhor responsividade e apresentação dos desenhos.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Teste do Modal</h2>
+        <p>Clique no botão abaixo para testar o modal melhorado:</p>
+        <button class="test-btn" onclick="testModal()">Abrir Modal de Teste</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Teste do Grid de Portfólio</h2>
+        <div class="test-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop" alt="Teste 1" class="portfolio-image">
+                <div class="portfolio-info">
+                    <h3 class="portfolio-title">Arte de Teste 1</h3>
+                    <div class="portfolio-meta">
+                        <span class="portfolio-date">19 de agosto de 2025</span>
+                        <span class="portfolio-type">Digital</span>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop" alt="Teste 2" class="portfolio-image">
+                <div class="portfolio-info">
+                    <h3 class="portfolio-title">Arte de Teste 2</h3>
+                    <div class="portfolio-meta">
+                        <span class="portfolio-date">18 de agosto de 2025</span>
+                        <span class="portfolio-type">Tradicional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal melhorado -->
+    <div id="imageModal" class="modal" tabindex="-1">
+        <div class="modal-content">
+            <button class="close" aria-label="Fechar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" loading="lazy">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <div class="modal-meta">
+                    <span class="modal-date" id="modalDate"></span>
+                    <span class="modal-type" id="modalType"></span>
+                </div>
+                <p id="modalDescription" class="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const closeModal = document.querySelector('.close');
+        
+        function testModal() {
+            modalImage.src = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop";
+            modalImage.alt = "Imagem de teste";
+            modalTitle.textContent = "Arte de Teste - Novo Design";
+            modalDate.textContent = "19 de agosto de 2025";
+            modalType.textContent = "Digital";
+            modalDescription.textContent = "Esta é uma imagem de teste para demonstrar o novo design do modal inspirado no portfólio do Sachin Teng. O design é minimalista, elegante e totalmente responsivo.";
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                modal.classList.add('modal-open');
+            }, 10);
+        }
+        
+        function closeImageModal() {
+            modal.classList.remove('modal-open');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 400);
+        }
+        
+        // Event listeners
+        closeModal.addEventListener('click', closeImageModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeImageModal();
+            }
+        });
+        
+        // Fechar com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeImageModal();
+            }
+        });
+        
+        // Testar itens do portfólio
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('.portfolio-title').textContent;
+                const date = item.querySelector('.portfolio-date').textContent;
+                const type = item.querySelector('.portfolio-type').textContent;
+                const img = item.querySelector('.portfolio-image');
+                
+                modalImage.src = img.src;
+                modalImage.alt = title;
+                modalTitle.textContent = title;
+                modalDate.textContent = date;
+                modalType.textContent = type;
+                modalDescription.textContent = `Descrição da ${title.toLowerCase()}. Esta é uma obra criada com técnicas ${type.toLowerCase()} que demonstra a criatividade e habilidade artística.`;
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                setTimeout(() => {
+                    modal.classList.add('modal-open');
+                }, 10);
+            });
+        });
+    </script>
+</body>
+</html> 

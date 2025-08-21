@@ -1,34 +1,38 @@
 // Dados das imagens (será carregado do JSON)
 let portfolioData = [];
-let currentFilter = 'all';
+let currentCategory = 'all';
 
 // Elementos do DOM
 const portfolioGrid = document.getElementById('portfolioGrid');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const categoryButtons = document.querySelectorAll('.category-btn');
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const modalTitle = document.getElementById('modalTitle');
 const modalDate = document.getElementById('modalDate');
 const modalType = document.getElementById('modalType');
+const modalDescription = document.getElementById('modalDescription');
 const closeModal = document.querySelector('.close');
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('.nav');
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     loadPortfolioData();
     setupEventListeners();
     setupSmoothScrolling();
+    setupMobileMenu();
 });
 
 // Configurar event listeners
 function setupEventListeners() {
-    // Filtros
-    filterButtons.forEach(button => {
+    // Categorias
+    categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
-            filterPortfolio(filter);
+            const category = button.getAttribute('data-category');
+            filterPortfolio(category);
             
             // Atualizar botão ativo
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         });
     });
@@ -42,11 +46,17 @@ function setupEventListeners() {
     });
 
     // Fechar modal com ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeImageModal();
-        }
-    });
+    document.addEventListener('keydown', handleKeyDown);
+}
+
+// Configurar menu mobile
+function setupMobileMenu() {
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            mobileMenuToggle.classList.toggle('active');
+        });
+    }
 }
 
 // Configurar scroll suave
@@ -67,6 +77,12 @@ function setupSmoothScrolling() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Fechar menu mobile se estiver aberto
+                if (nav.classList.contains('nav-open')) {
+                    nav.classList.remove('nav-open');
+                    mobileMenuToggle.classList.remove('active');
+                }
             }
         });
     });
@@ -148,23 +164,24 @@ function getSampleData() {
 
 // Renderizar portfólio
 function renderPortfolio() {
-    const filteredData = currentFilter === 'all' 
+    const filteredData = currentCategory === 'all' 
         ? portfolioData 
-        : portfolioData.filter(item => item.type === currentFilter);
+        : portfolioData.filter(item => item.type === currentCategory);
     
     portfolioGrid.innerHTML = '';
     
-    filteredData.forEach(item => {
-        const portfolioItem = createPortfolioItem(item);
+    filteredData.forEach((item, index) => {
+        const portfolioItem = createPortfolioItem(item, index);
         portfolioGrid.appendChild(portfolioItem);
     });
 }
 
 // Criar item do portfólio
-function createPortfolioItem(item) {
+function createPortfolioItem(item, index) {
     const div = document.createElement('div');
     div.className = 'portfolio-item';
     div.setAttribute('data-type', item.type);
+    div.style.animationDelay = `${index * 0.1}s`;
     
     const formattedDate = formatDate(item.date);
     
@@ -186,8 +203,8 @@ function createPortfolioItem(item) {
 }
 
 // Filtrar portfólio
-function filterPortfolio(filter) {
-    currentFilter = filter;
+function filterPortfolio(category) {
+    currentCategory = category;
     renderPortfolio();
 }
 
@@ -196,17 +213,53 @@ function openImageModal(item) {
     modalImage.src = item.imageUrl;
     modalImage.alt = item.title;
     modalTitle.textContent = item.title;
-    modalDate.textContent = `Data: ${formatDate(item.date)}`;
-    modalType.textContent = `Tipo: ${getTypeLabel(item.type)}`;
+    modalDate.textContent = formatDate(item.date);
+    modalType.textContent = getTypeLabel(item.type);
+    modalDescription.textContent = item.description || '';
     
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    
+    // Focar no modal para acessibilidade
+    modal.focus();
+    
+    // Adicionar classe para animação
+    setTimeout(() => {
+        modal.classList.add('modal-open');
+    }, 10);
+    
+    // Prevenir scroll do body
+    document.addEventListener('wheel', preventScroll, { passive: false });
+    document.addEventListener('touchmove', preventScroll, { passive: false });
 }
 
 // Fechar modal
 function closeImageModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    modal.classList.remove('modal-open');
+    
+    // Aguardar animação terminar
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Remover event listeners de scroll
+        document.removeEventListener('wheel', preventScroll);
+        document.removeEventListener('touchmove', preventScroll);
+    }, 400);
+}
+
+// Prevenir scroll do body quando modal estiver aberto
+function preventScroll(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}
+
+// Função para fechar modal com ESC
+function handleKeyDown(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeImageModal();
+    }
 }
 
 // Formatar data

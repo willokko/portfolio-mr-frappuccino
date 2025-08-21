@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Modal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { padding: 50px; font-family: Arial, sans-serif; }
+        .test-btn { 
+            padding: 15px 30px; 
+            background: #667eea; 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 16px;
+            margin: 10px;
+        }
+        .test-btn:hover { background: #5a6fd8; }
+    </style>
+</head>
+<body>
+    <h1>Teste do Modal do Portfólio</h1>
+    <p>Clique no botão abaixo para testar o modal:</p>
+    
+    <button class="test-btn" onclick="testModal()">Abrir Modal de Teste</button>
+    
+    <!-- Modal para visualização das imagens -->
+    <div id="imageModal" class="modal" tabindex="-1">
+        <div class="modal-content">
+            <span class="close" aria-label="Fechar modal">&times;</span>
+            <img id="modalImage" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Imagem de teste" loading="lazy">
+            <div class="image-info">
+                <h3 id="modalTitle">Imagem de Teste</h3>
+                <p class="image-date" id="modalDate">19 de agosto de 2025</p>
+                <span class="image-type" id="modalType">Digital</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('imageModal');
+        const closeModal = document.querySelector('.close');
+        
+        function testModal() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Adicionar classe para animação
+            setTimeout(() => {
+                modal.classList.add('modal-open');
+            }, 10);
+        }
+        
+        function closeImageModal() {
+            modal.classList.remove('modal-open');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+        
+        // Event listeners
+        closeModal.addEventListener('click', closeImageModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeImageModal();
+            }
+        });
+        
+        // Fechar com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html> 
