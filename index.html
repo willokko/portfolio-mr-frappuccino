@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Artístico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Portfólio Artístico</h1>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Início</a>
+                <a href="#portfolio" class="nav-link">Portfólio</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Bem-vindo ao meu mundo artístico</h2>
+                    <p class="hero-subtitle">Descubra minha coleção de desenhos e ilustrações</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/mr.frappuccino" target="_blank" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                            @mr.frappuccino
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2 class="section-title">Meu Portfólio</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="digital">Digital</button>
+                    <button class="filter-btn" data-filter="traditional">Tradicional</button>
+                    <button class="filter-btn" data-filter="sketch">Sketch</button>
+                </div>
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- As imagens serão carregadas dinamicamente aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Artista apaixonado por criar e compartilhar minha visão única através de desenhos e ilustrações. Cada peça conta uma história e representa um momento de inspiração.</p>
+                        <p>Minhas obras abrangem diferentes estilos e técnicas, desde sketches rápidos até ilustrações digitais elaboradas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Entre em Contato</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Redes Sociais</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com/mr.frappuccino" target="_blank" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                @mr.frappuccino
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Portfólio Artístico. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para visualização das imagens -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="image-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDate"></p>
+                <p id="modalType"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

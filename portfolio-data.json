@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Retrato Digital",
+    "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    "date": "2024-01-15",
+    "type": "digital",
+    "description": "Retrato digital criado com técnicas modernas"
+  },
+  {
+    "id": 2,
+    "title": "Sketch Tradicional",
+    "imageUrl": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+    "date": "2024-01-10",
+    "type": "traditional",
+    "description": "Sketch feito a lápis em papel"
+  },
+  {
+    "id": 3,
+    "title": "Ilustração Fantástica",
+    "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    "date": "2024-01-05",
+    "type": "digital",
+    "description": "Criatura fantástica em estilo digital"
+  },
+  {
+    "id": 4,
+    "title": "Estudo de Anatomia",
+    "imageUrl": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+    "date": "2023-12-28",
+    "type": "sketch",
+    "description": "Estudo anatômico em carvão"
+  },
+  {
+    "id": 5,
+    "title": "Paisagem Urbana",
+    "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    "date": "2023-12-20",
+    "type": "traditional",
+    "description": "Paisagem urbana em aquarela"
+  },
+  {
+    "id": 6,
+    "title": "Personagem de RPG",
+    "imageUrl": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+    "date": "2023-12-15",
+    "type": "digital",
+    "description": "Personagem para jogo de RPG"
+  }
+] 
