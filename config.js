@@ -43,11 +43,6 @@ const PORTFOLIO_CONFIG = {
                 color: "#764ba2",
                 description: "Arte criada com materiais tradicionais"
             },
-            sketch: {
-                label: "Sketch",
-                color: "#f093fb",
-                description: "Esboços e estudos rápidos"
-            }
         },
 
         // Configurações de exibição

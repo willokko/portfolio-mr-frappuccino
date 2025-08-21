@@ -14,6 +14,17 @@
     --border-color: #e0e0e0;
     --shadow: 0 4px 20px rgba(0,0,0,0.1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --header-height: 72px;
+}
+
+main {
+    padding-top: var(--header-height);
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 64px;
+    }
 }
 
 body {
@@ -135,10 +146,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    padding: 120px 2rem 80px;
+    padding: 60px 2rem 20px;
     text-align: center;
     background: var(--secondary-color);
-    min-height: 60vh;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,14 +163,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 400;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
     color: var(--text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-weight: 300;
 }
 
@@ -185,20 +196,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Portfolio Section */
 .portfolio {
-    padding: 100px 2rem;
+    padding: 20px 2rem 60px;
     background: white;
 }
 
 .portfolio-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .section-title {
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 400;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     letter-spacing: -0.02em;
 }
 
@@ -207,13 +218,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-light);
     font-weight: 300;
     letter-spacing: 0.1em;
+    margin-bottom: 0;
 }
 
 .portfolio-categories {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
@@ -222,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--border-color);
     background: transparent;
     color: var(--text-color);
-    border-radius: 0;
+    border-radius: 25px;
     cursor: pointer;
     transition: var(--transition);
     font-family: 'Inter', sans-serif;
@@ -271,6 +283,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     overflow: hidden;
     position: relative;
+    border-radius: 12px;
 }
 
 .portfolio-item:hover {
@@ -284,6 +297,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 400px;
     object-fit: cover;
     transition: var(--transition);
+    border-radius: 12px 12px 0 0;
 }
 
 .portfolio-item:hover .portfolio-image {
@@ -293,6 +307,7 @@ h1, h2, h3, h4, h5, h6 {
 .portfolio-info {
     padding: 2rem;
     background: white;
+    border-radius: 0 0 12px 12px;
 }
 
 .portfolio-title {
@@ -608,11 +623,19 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero {
-        padding: 100px 1rem 60px;
+        padding: 40px 1rem 20px;
     }
     
     .portfolio {
-        padding: 80px 1rem;
+        padding: 20px 1rem;
+    }
+    
+    .portfolio-header {
+        margin-bottom: 0.8rem;
+    }
+    
+    .portfolio-categories {
+        margin-bottom: 0.8rem;
     }
     
     .portfolio-grid {
