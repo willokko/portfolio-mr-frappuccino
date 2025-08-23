@@ -488,14 +488,15 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin: 0 auto;
     width: min(900px, 92vw);
-    max-height: 85vh;
+    height: 95vh;
     background: white;
-    border-radius: 0;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     animation: modalSlideIn 0.3s ease-out;
+    box-sizing: border-box;
 }
 
 @keyframes modalSlideIn {
@@ -539,7 +540,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 60vh;
+    height: 60vh;
+    flex-shrink: 0;
 }
 
 #modalImage {
@@ -550,25 +552,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-info {
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 0.5rem;
     background: white;
-    flex: 1 1 auto;
+    flex: 1;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-info h3 {
     font-size: 2rem;
     font-weight: 500;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-family: 'Playfair Display', serif;
 }
 
 .modal-meta {
     display: flex;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
@@ -676,20 +681,21 @@ h1, h2, h3, h4, h5, h6 {
     
     .modal-content {
         width: 96vw;
-        max-height: 80vh;
+        height: 80vh;
     }
     
     .modal-image-container {
-        max-height: 55vh;
+        height: 60vh;
     }
     
     #modalImage {
-        max-height: 55vh;
+        max-height: 60vh;
     }
     
     .modal-info {
         padding: 1rem 1.5rem 1.5rem;
-        max-height: 28vh;
+        flex: 1;
+        min-height: 0;
     }
     
     .modal-meta {
