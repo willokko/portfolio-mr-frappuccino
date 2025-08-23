@@ -14,6 +14,9 @@ const modalDescription = document.getElementById('modalDescription');
 const closeModal = document.querySelector('.close');
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const nav = document.querySelector('.nav');
+const fullscreenModal = document.getElementById('fullscreenModal');
+const fullscreenImage = document.getElementById('fullscreenImage');
+
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,6 +47,9 @@ function setupEventListeners() {
             closeImageModal();
         }
     });
+
+    // Evento de clique na imagem do modal para abrir em tela cheia
+    modalImage.addEventListener('click', openFullscreenModal);
 
     // Fechar modal com ESC
     document.addEventListener('keydown', handleKeyDown);
@@ -224,11 +230,36 @@ function openImageModal(item) {
     modal.focus();
 }
 
+// Abrir modal em tela cheia
+function openFullscreenModal() {
+    fullscreenImage.src = modalImage.src;
+    fullscreenImage.alt = modalImage.alt;
+    fullscreenImage.classList.add('zoomIn');
+    fullscreenModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// Fechar modal em tela cheia
+function closeFullscreenModal() {
+    fullscreenImage.classList.remove('zoomIn');
+    fullscreenImage.classList.add('zoomOut');
+
+    // Espera a animação de zoomOut terminar antes de esconder o modal
+    setTimeout(() => {
+        fullscreenModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        fullscreenImage.classList.remove('zoomOut');
+    }, 300);
+}
+
 // Fechar modal
 function closeImageModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+// Adicionar evento de clique no modal fullscreen para fechar
+fullscreenModal.addEventListener('click', closeFullscreenModal);
 
 // Prevenir scroll do body quando modal estiver aberto
 function preventScroll(e) {
