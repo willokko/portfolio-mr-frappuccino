@@ -3,7 +3,7 @@
     "id": 4,
     "title": "Lyra",
     "imageUrl": "./imagens/Lyra.jpg",
-    "date": "2025-04-04",
+    "date": "2025-10-25",
     "type": "digital",
     "description": "Arte feita para uma campanha de RPG."
   },
@@ -11,7 +11,7 @@
     "id": 5,
     "title": "Uriel Cozinhando",
     "imageUrl": "./imagens/Uriel Cozinhando.jpg",
-    "date": "2025-04-04",
+    "date": "2025-10-04",
     "type": "digital",
     "description": "Arte feita para uma campanha de RPG."
   },
@@ -19,7 +19,7 @@
     "id": 6,
     "title": "Diabo da Casa do Forró",
     "imageUrl": "./imagens/Diabo forro carta.jpg",
-    "date": "2025-04-04",
+    "date": "2025-10-17",
     "type": "digital",
     "description": "Arte feita na lenda do Diabo da Casa do Forró."
   },
@@ -27,7 +27,7 @@
     "id": 7,
     "title": "Capa de Livro: Chapeuzinho Vermelho",
     "imageUrl": "./imagens/Chapeuzinho Vermelho.jpg",
-    "date": "2025-04-04",
+    "date": "2025-12-05",
     "type": "digital",
     "description": "Arte teste feita para a capa de um conto da Chapeuzinho Vermelho."
   },
